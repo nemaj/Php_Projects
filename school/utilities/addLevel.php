@@ -13,22 +13,17 @@ if (!$data) {
 	die();
 }
 
-$payment = $data->payment;
-$price = $data->price;
 $level = $data->level;
 
-if ($_GET['id']) {
+if (isset($_GET['id']) && $_GET['id']) {
 	$id = $_GET['id'];
-	$sql = "UPDATE payment_criteria SET name='$payment', price='$price', grade_level='$level' WHERE id='$id'";
+	$sql = "UPDATE grade_level SET level='$level' WHERE id='$id'";
 } else {
-	$sql = "INSERT INTO payment_criteria (name, price, grade_level) VALUES ('$payment', '$price', '$level')";
+	$sql = "INSERT INTO grade_level (level) VALUES ('$level')";
 }
-
-// echo $sql;
 
 if ($conn->query($sql) === TRUE) {
 	echo true;
 } else {
-	echo $conn->error;	
-	// echo false;
+	echo false;
 }

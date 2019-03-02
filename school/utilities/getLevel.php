@@ -6,29 +6,18 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 
 include_once '../conn.php';
 
-$list = $conn->query("SELECT * FROM payment_criteria");
+$sql = $conn->query("SELECT * FROM grade_level");
 
-if ($list->num_rows > 0) {
+if ($sql->num_rows > 0) {
 	$result = array();
 
-	while ($row = $list->fetch_array()) {
+	while($row = $sql->fetch_assoc()) {
 		extract($row);
-
-		if ($grade_level !== '0') {
-			$getlevel = $conn->query("SELECT * FROM grade_level WHERE id='$grade_level'");
-			$levelArr = $getlevel->fetch_array();
-		}
-
-		$levelValue = $grade_level === '0' ? 'All' : $levelArr['level'];
 
 		$item = array(
 				'id' => $id,
-				'name' => $name,
-				'price' => $price,
-				'level' => $grade_level,
-				'levelValue' => $levelValue
+				'level' => $level
 			);
-
 		array_push($result, $item);
 	}
 
