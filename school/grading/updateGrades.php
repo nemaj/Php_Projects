@@ -34,7 +34,7 @@ if ($list->num_rows > 0) {
 	$sql = "UPDATE pupil_grade SET grade='$AVG' WHERE id='$gradingId'";
 
 	if ($conn->query($sql) === TRUE) {
-		echo true;
+		echo $AVG;
 	} else {
 		echo false;
 	}
