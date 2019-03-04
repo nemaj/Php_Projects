@@ -23,12 +23,25 @@ if ($result->num_rows > 0) {
     $checkInfo = $conn->query("SELECT * FROM parent_info WHERE users_id='".$arr['id']."'");
     $isInfoExist = $checkInfo->num_rows;
 
+    $verify = true;
+    if ($role['role_id'] === '3') {
+        $checkVerify = $conn->query("SELECT * FROM teacher_info WHERE users_id='".$arr['id']."'");
+
+        if ($checkVerify->num_rows > 0) {
+            $verifyArr = $checkVerify->fetch_array();
+            $verify = $verifyArr['verify'] ? true : false;
+        } else {
+            $verify = false;
+        }
+    }
+
     $res = array(
     	"usersId" => $arr['id'],
     	"firstName" => $arr['first_name'],
     	"lastName" => $arr['last_name'],
     	"username" => $arr['username'],
         "role" => $role['role_id'],
+        "verify" => $verify,
         "infoExist" => $isInfoExist ? true : false,
     	"created_at" => $arr['created_at']
     );

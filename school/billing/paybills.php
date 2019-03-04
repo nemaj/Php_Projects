@@ -41,4 +41,4 @@ foreach ($bills as $key => $value) {
 
 }
 
-echo true;
+echo array('OR' => $orNum);

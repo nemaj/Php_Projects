@@ -40,14 +40,16 @@ if ($find->num_rows > 0) {
 				address,
 				contact,
 				email,
-				users_id
+				users_id,
+				verify,
 			) VALUES (
 				'$gender',
 				'$level',
 				'$address',
 				'$contact',
 				'$email',
-				'$usersId'
+				'$usersId',
+				'0'
 			)";
 }
 
