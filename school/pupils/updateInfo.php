@@ -16,6 +16,7 @@ $gender = $data->gender;
 $birthdate = $data->birthdate;
 $birthplace = $data->birthplace;
 $address = $data->address;
+$level = $data->level;
 
 $sql = "UPDATE pupils SET
             first_name='$fname',
@@ -28,7 +29,11 @@ $sql = "UPDATE pupils SET
         WHERE id='$pupilId'";
 
 if ($conn->query($sql) === TRUE) {
+
+    $update = $conn->query("UPDATE pupil_level SET level_id='$level' WHERE pupil_id='$pupilId'");
+
     echo true;
+
 } else {
     echo false;
 }
