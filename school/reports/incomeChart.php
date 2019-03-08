@@ -89,7 +89,7 @@ $lastAmount = $totalAmount / $count;
 
 $last = array(
 		'date' => '',
-		'month' => getMonth($lastMonth),
+		'month' => getMonth($lastMonth+1),
 		'year' => $lastYear,
 		'amount' => $lastAmount,
 	);
