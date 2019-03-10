@@ -13,7 +13,7 @@ $fname = $data->fname;
 $lname = $data->lname;
 $mname = $data->mname;
 $gender = $data->gender;
-$birthdate = $data->birthdate;
+$birthdate = $data->bdate;
 $birthplace = $data->birthplace;
 $address = $data->address;
 $level = $data->level;
@@ -30,10 +30,13 @@ $sql = "UPDATE pupils SET
 
 if ($conn->query($sql) === TRUE) {
 
-    $update = $conn->query("UPDATE pupil_level SET level_id='$level' WHERE pupil_id='$pupilId'");
+    $update = "UPDATE pupil_level SET level_id='$level' WHERE pupil_id='$pupilId'";
 
-    echo true;
+    if ($conn->query($update) === TRUE)
+        echo true;
+    else 
+        echo $conn->error;
 
 } else {
-    echo false;
+    echo $conn->error;
 }

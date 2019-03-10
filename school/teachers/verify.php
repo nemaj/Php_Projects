@@ -17,14 +17,12 @@ $check = $conn->query("SELECT * FROM teacher_info WHERE users_id='$usersId'");
 if ($check->num_rows === 0) {
 	$insert = "INSERT INTO teacher_info (
 				gender,
-				advisory,
 				address,
 				contact,
 				email,
 				users_id,
 				verify
 			) VALUES (
-				'',
 				'',
 				'',
 				'',

@@ -41,7 +41,7 @@ if ($find->num_rows > 0) {
 				contact,
 				email,
 				users_id,
-				verify,
+				verify
 			) VALUES (
 				'$gender',
 				'$level',
@@ -56,5 +56,5 @@ if ($find->num_rows > 0) {
 if ($conn->query($sql) === TRUE) {
 	echo true;
 } else {
-	echo false;
+	echo $conn->error;
 }
