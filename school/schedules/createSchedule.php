@@ -21,7 +21,7 @@ $endTime = $data->endTime;
 
 if ($_GET['id']) {
 	$id = $_GET['id'];
-	$sql = "UPDATE activties SET areas='$areas', day='$day', time_start='$startTime', time_end='$endTime' WHERE id='$id'";
+	$sql = "UPDATE schedules SET areas='$areas', day='$day', time_start='$startTime', time_end='$endTime' WHERE id='$id'";
 
 } else {
 	$sql = "INSERT INTO schedules (
@@ -39,6 +39,8 @@ if ($_GET['id']) {
 			)";
 
 }
+
+// echo $sql;
 
 if ($conn->query($sql) === TRUE) {
 	if ($_GET['id']) {

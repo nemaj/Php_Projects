@@ -12,6 +12,28 @@ if (!isset($_GET['id'])) {
 
 $usersId = $_GET['id'];
 
+$check = $conn->query("SELECT * FROM teacher_info WHERE users_id='$usersId'");
+
+if ($check->num_rows === 0) {
+	$insert = "INSERT INTO teacher_info (
+				gender,
+				address,
+				contact,
+				email,
+				users_id,
+				verify
+			) VALUES (
+				'',
+				'',
+				'',
+				'',
+				'$usersId',
+				'1'
+			)";
+
+	$conn->query($insert);
+}
+
 $sql = "UPDATE teacher_info SET verify='1' WHERE users_id='$usersId'";
 
 if ($conn->query($sql) === TRUE) {

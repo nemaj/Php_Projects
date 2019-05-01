@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost","root","","iup_db");
+$conn = mysqli_connect("localhost","root","","iup_new");
 
 if (mysqli_connect_errno())
 {

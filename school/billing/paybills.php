@@ -41,4 +41,4 @@ foreach ($bills as $key => $value) {
 
 }
 
-echo true;
+echo json_encode(array('OR' => $orNum));

@@ -22,6 +22,7 @@ if ($res->num_rows > 0) {
 			'id' => $id,
 			'areas' => $areas,
 			'day' => $day,
+			'levelId' => $level,
 			'startTime' => date('d/m/Y H:i:s', strtotime($time_start)),
 			'endTime' => date('d/m/Y H:i:s', strtotime($time_end))
 		);

@@ -13,10 +13,10 @@ if (!$data) {
 	die();
 }
 
-$firstName = $data->firstName;
-$lastName = $data->lastName;
-$username = $data->username;
-$password = $data->password;
+$firstName = trim($data->firstName);
+$lastName = trim($data->lastName);
+$username = trim($data->username);
+$password = trim($data->password);
 $role = $data->role;
 
 if (!$username) {
